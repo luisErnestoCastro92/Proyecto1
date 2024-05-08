@@ -1,4 +1,4 @@
-package com.spring.backend.project1.entities;
+package com.spring.backend.project1.commons.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
