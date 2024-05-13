@@ -30,8 +30,9 @@ public class GameController implements GameApi {
     }
 
     @Override
-    public void deleteGameById(String id) {
+    public ResponseEntity<Void> deleteGameById(String id) {
         this.gameService.deleteGameById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @Override
@@ -40,11 +41,12 @@ public class GameController implements GameApi {
     }
 
     @Override
-    public ResponseEntity<Game> updateGame(Game newGame, String id) {
+    public ResponseEntity<Void> updateGame(Game newGame, String id) {
         Game game = this.gameService.getGameById(id);
         game.setName(newGame.getName());
         game.setGenero(newGame.getGenero());
-        return ResponseEntity.ok(this.gameService.saveGame(game));
+        this.gameService.saveGame(game);
+        return ResponseEntity.noContent().build();
     }
 
 }

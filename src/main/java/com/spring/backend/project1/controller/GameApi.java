@@ -17,11 +17,11 @@ public interface GameApi {
     ResponseEntity<Game> getGameById(@PathVariable String id);
 
     @DeleteMapping("/{id}")
-    void deleteGameById(@PathVariable String id);
+    ResponseEntity<Void> deleteGameById(@PathVariable String id);
 
     @GetMapping
     List<Game> getGames();
 
-    @PutMapping("/update/{id}")
-    ResponseEntity<Game> updateGame(@RequestBody Game newGame, @PathVariable String id);
+    @PutMapping(ApiPathVariables.UPDATE_GAME + "/{id}")
+    ResponseEntity<Void> updateGame(@RequestBody Game newGame, @PathVariable String id);
 }
